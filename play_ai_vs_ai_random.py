@@ -1,0 +1,9 @@
+from game import run_game
+from strategy import play_move_interactive, create_random_valid_strategy, play_move_ai
+from functools import partial
+
+
+if __name__ == '__main__':
+    human_p1 = partial(play_move_ai, strategy=create_random_valid_strategy(uniform=True))
+    human_p2 = partial(play_move_ai, strategy=create_random_valid_strategy(uniform=True))
+    run_game(human_p1, human_p2, verbose=True)
